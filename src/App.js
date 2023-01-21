@@ -1,25 +1,21 @@
-
-import './App.css';
-import AddUser from './components/AddUser';
-import UserList from './components/UserList';
+import { useState } from "react";
+import "./App.css";
+import AddUser from "./components/AddUser";
+import UserList from "./components/UserList";
 
 function App() {
+  const [dataArray, setdataArray] = useState([]);
 
-  const arr = [
-    {
-      name: "vikas",
-      age: 23
-    },
-    {
-      name: "bush",
-      age: 18
-    }
-  ]
+  const passData = (e) => {
+    const arr1 = [...dataArray, e];
+    setdataArray(arr1);
+    console.log(arr1);
+  };
 
   return (
     <div className="App">
-      <AddUser />
-      <UserList arr={arr}/>
+      <AddUser passData={passData} />
+      <UserList arr={dataArray} />
     </div>
   );
 }

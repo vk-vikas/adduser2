@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./AddUser.css";
 
-const AddUser = () => {
+const AddUser = ({passData}) => {
   const [name, setname] = useState("");
   const [age, setage] = useState("");
 
@@ -13,8 +13,13 @@ const AddUser = () => {
       age: age,
       id: Math.random() * 1000,
     };
-    console.log(data);
+    setname("");
+    setage("");
+    // console.log(data);
+    passData(data);
   };
+
+ 
 
   return (
     <form onSubmit={submitHandler} className="form">

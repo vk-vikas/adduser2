@@ -1,11 +1,12 @@
 import React from 'react'
+import './UserList.css';
 
 const UserList = ({arr}) => {
   return (
-    <div>
+    <div className='userlist'>
         {arr.map((i) => {
             return (
-                <h3>Name is {i.name} and age is {i.age}</h3>
+                <h3>{i.name} ( {i.age} yrs)</h3>
             )
         })}
     </div>
